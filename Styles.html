@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interior Design Styles & Aesthetics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="WebsiteInteriorStyle.css">
+</head>
+<body>
+
+    <header>
+        <a href="InteriorDesign.html" class="brand-logo">
+            <img src="logo.png" alt="SPACES Logo">
+            <span>SPACES.</span>
+        </a>
+        <nav>
+            <a href="InteriorDesign.html">Overview</a>
+            <a href="color-theory.html">Color Theory</a>
+            <a href="Styles.html">Styles</a>
+            <a href="budget-guide.html">Low-Budget Guide</a>
+            <a href="gallery.html">Gallery</a>
+            <button class="theme-toggle-btn" style="margin-left: 20px;" onclick="toggleTheme()">🌙 Dark Mode</button>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <h1>Design Styles & Aesthetics</h1>
+        <p>Exploring various design philosophy trends allows you to discover the specific aesthetic that resonates with your personal lifestyle and home environment.</p>
+
+        <div class="styles-grid">
+            <div class="style-card">
+                <span class="style-tag">Harmonious & Warm</span>
+                <h3>Japandi Style</h3>
+                <p>A fusion of Scandinavian functionality and Japanese rustic minimalism. It focuses on clean lines, natural materials like light woods, and uncluttered spaces with warm neutral tones.</p>
+            </div>
+
+            <div class="style-card">
+                <span class="style-tag">Essential & Clean</span>
+                <h3>Minimalism</h3>
+                <p>Centered around the philosophy of "Less is More." It emphasizes simple forms, hidden storage, neutral palettes, and eliminating unnecessary clutter to highlight spatial freedom.</p>
+            </div>
+
+            <div class="style-card">
+                <span class="style-tag">Raw & Urban</span>
+                <h3>Industrial Style</h3>
+                <p>Inspired by converted warehouses and urban lofts. Features exposed brick walls, metal accents, raw wood elements, and a neutral-to-dark color scheme with a bold character.</p>
+            </div>
+
+            <div class="style-card">
+                <span class="style-tag">Cozy & Timeless</span>
+                <h3>Modern Farmhouse</h3>
+                <p>Combines rustic country warmth with modern crisp aesthetics. Characterized by neutral backdrops, comfortable slipcovered furniture, textured weaves, and antique touches.</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Pro Tip:</strong> You don't have to strictly stick to one style. Mixing 70% of a primary style with 30% of another creates a unique, personalized room with depth.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SPACES Interior Research & Hub. Designed with intention and care.</p>
+        <p>Designed & Developed with Passion by Developer <strong>Amnah Al-Dousari</strong></p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateToggleButtons(isDark);
+        }
+
+        function updateToggleButtons(isDark) {
+            const btns = document.querySelectorAll('.theme-toggle-btn');
+            btns.forEach(btn => {
+                btn.innerHTML = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                updateToggleButtons(true);
+            } else {
+                updateToggleButtons(false);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Low-Budget Interior Design Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="WebsiteInteriorStyle.css">
+</head>
+<body>
+
+    <header>
+        <a href="InteriorDesign.html" class="brand-logo">
+            <img src="logo.png" alt="SPACES Logo">
+            <span>SPACES.</span>
+        </a>
+        <nav>
+            <a href="InteriorDesign.html">Overview</a>
+            <a href="color-theory.html">Color Theory</a>
+            <a href="Styles.html">Styles</a>
+            <a href="budget-guide.html">Low-Budget Guide</a>
+            <a href="gallery.html">Gallery</a>
+            <button class="theme-toggle-btn" style="margin-left: 20px;" onclick="toggleTheme()">🌙 Dark Mode</button>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <h1>Smart & Low-Budget Design Guide</h1>
+        <p>Creating an elegant home does not demand high spending. High-end spaces are shaped by creativity, research, and smart intentional choices.</p>
+
+        <div class="guide-list">
+            <div class="guide-item">
+                <h3>1. Strategic Lighting over Expensive Furniture</h3>
+                <p>Lighting changes the entire mood of a space. Instead of buying costly decor, focus on warm ambient lighting (2700K - 3000K LEDs), floor lamps, and natural light placement to create depth instantly.</p>
+            </div>
+
+            <div class="guide-item">
+                <h3>2. Upcycling & DIY Refinishing</h3>
+                <p>Repainting an old wooden table or updating cabinet hardware with matte black or brushed brass handles can transform aged pieces into modern statement furniture at a fraction of the cost.</p>
+            </div>
+
+            <div class="guide-item">
+                <h3>3. Large-Scale Thrifted & Printable Art</h3>
+                <p>Small scattered frames create visual noise. Opt for oversized art by printing high-resolution museum public-domain art and framing it in simple minimalist frames.</p>
+            </div>
+
+            <div class="guide-item">
+                <h3>4. Decluttering & Minimalist Organization</h3>
+                <p>The cheapest interior design trick is removing visual clutter. Clear surfaces, thoughtful spatial arrangements, and curated displays make any space look open and luxurious without spending a dime.</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Final Note:</strong> Design is an ongoing journey. Invest your energy in researching materials and testing combinations—effort and patience will always outshine a quick high budget.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SPACES Interior Research & Hub. Designed with intention and care.</p>
+        <p>Designed & Developed with Passion by Developer <strong>Amnah Al-Dousari</strong></p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateToggleButtons(isDark);
+        }
+
+        function updateToggleButtons(isDark) {
+            const btns = document.querySelectorAll('.theme-toggle-btn');
+            btns.forEach(btn => {
+                btn.innerHTML = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                updateToggleButtons(true);
+            } else {
+                updateToggleButtons(false);
+            }
+        });
+    </script>
+</body>
+</html>
